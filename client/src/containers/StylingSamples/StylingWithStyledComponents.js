@@ -7,11 +7,11 @@ function StylingWithStyledComponents(props) {
         <div>
           <h3>Billing Address</h3>
           <div>
-            <label for="fullname">Full Name</label>
+            <label htmlFor="fullname">Full Name</label>
             <input type="text" name="fullname" placeholder="Maisa Mallikas" />
           </div>
           <div>
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="text"
               name="email"
@@ -19,15 +19,15 @@ function StylingWithStyledComponents(props) {
             />
           </div>
           <div>
-            <label for="address">Address</label>
+            <label htmlFor="address">Address</label>
             <input type="text" name="address" placeholder="Länsikatu 15" />
           </div>
           <div>
-            <label for="city">City</label>
+            <label htmlFor="city">City</label>
             <input type="text" name="city" placeholder="Joensuu" />
           </div>
           <div>
-            <label for="zip">Zip</label>
+            <label htmlFor="zip">Zip</label>
             <input type="text" name="zip" placeholder="80110" />
           </div>
         </div>
@@ -35,18 +35,18 @@ function StylingWithStyledComponents(props) {
         <div>
           <h3>Payment</h3>
           <div>
-            <label for="cardType">Select Card</label>
+            <label htmlFor="cardType">Select Card</label>
             <select name="cardType">
               <option value="visa">Visa</option>
               <option value="masterCard">Mastercard</option>
             </select>
           </div>
           <div>
-            <label for="cardName">Name on Card</label>
+            <label htmlFor="cardName">Name on Card</label>
             <input type="text" name="cardName" placeholder="Maisa Mallikas" />
           </div>
           <div>
-            <label for="cardNumber">Credit card number</label>
+            <label htmlFor="cardNumber">Credit card number</label>
             <input
               type="text"
               name="cardNumber"
@@ -55,15 +55,15 @@ function StylingWithStyledComponents(props) {
           </div>
           <div>
             <div>
-              <label for="cardExpMonth">Exp Month</label>
+              <label htmlFor="cardExpMonth">Exp Month</label>
               <input type="number" name="cardExpMonth" placeholder="06" />
             </div>
             <div>
-              <label for="cardExpYear">Exp Year</label>
+              <label htmlFor="cardExpYear">Exp Year</label>
               <input type="number" name="cardExpYear" placeholder="2020" />
             </div>
             <div>
-              <label for="cardCvv">CVV</label>
+              <label htmlFor="cardCvv">CVV</label>
               <input type="text" name="cardCvv" placeholder="123" />
             </div>
           </div>
