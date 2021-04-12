@@ -1,0 +1,31 @@
+#styling-with-css {
+  background-color: rgb(244, 244, 244);
+}
+#styling-with-css .section-container {
+  display: flex;
+  font-size: 15px;
+}
+#styling-with-css .section {
+  flex: 1;
+  min-width: 0;
+  padding: 0 1em;
+}
+#styling-with-css .section .section-container {
+  margin: 0 -1em;
+}
+
+#styling-with-css .input-group {
+  margin-bottom: 1em;
+}
+#styling-with-css label {
+  display: block;
+  margin-bottom: 0.5em;
+  white-space: nowrap;
+}
+#styling-with-css input,
+#styling-with-css select {
+  width: 100%;
+  font-size: 1em;
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+}
