@@ -1,75 +1,97 @@
 import React from "react";
+import { Form, FormGroup, Label, Input, Row, Col } from "reactstrap";
+import { FaUser, FaEnvelope, FaRegAddressCard, FaCity } from "react-icons/fa";
 
 function StylingWithBootsrap(props) {
   return (
-    <form>
-      <div>
-        <div>
+    <Form>
+      <Row>
+        <Col>
           <h3>Billing Address</h3>
-          <div>
-            <label htmlFor="fullname">Full Name</label>
-            <input type="text" name="fullname" placeholder="Maisa Mallikas" />
-          </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
+          <FormGroup>
+            <Label htmlFor="fullname">
+              <FaUser /> Full Name
+            </Label>
+            <Input type="text" name="fullname" placeholder="Maisa Mallikas" />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="email">
+              <FaEnvelope /> Email
+            </Label>
+            <Input
               type="text"
               name="email"
               placeholder="maisa.mallikas@example.com"
             />
-          </div>
-          <div>
-            <label htmlFor="address">Address</label>
-            <input type="text" name="address" placeholder="Länsikatu 15" />
-          </div>
-          <div>
-            <label htmlFor="city">City</label>
-            <input type="text" name="city" placeholder="Joensuu" />
-          </div>
-          <div>
-            <label htmlFor="zip">Zip</label>
-            <input type="text" name="zip" placeholder="80110" />
-          </div>
-        </div>
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="address">
+              <FaRegAddressCard /> Address
+            </Label>
+            <Input type="text" name="address" placeholder="Länsikatu 15" />
+          </FormGroup>
+          <Row>
+            <Col>
+              <FormGroup>
+                <Label htmlFor="city">
+                  <FaCity /> City
+                </Label>
+                <Input type="text" name="city" placeholder="Joensuu" />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label htmlFor="zip">Zip</Label>
+                <Input type="text" name="zip" placeholder="80110" />
+              </FormGroup>
+            </Col>
+          </Row>
+        </Col>
 
-        <div>
+        <Col>
           <h3>Payment</h3>
-          <div>
-            <label htmlFor="cardType">Select Card</label>
-            <select name="cardType">
+          <FormGroup>
+            <Label htmlFor="cardType">Select Card</Label>
+            <Input type="select" name="cardType">
               <option value="visa">Visa</option>
               <option value="masterCard">Mastercard</option>
-            </select>
-          </div>
-          <div>
-            <label htmlFor="cardName">Name on Card</label>
-            <input type="text" name="cardName" placeholder="Maisa Mallikas" />
-          </div>
-          <div>
-            <label htmlFor="cardNumber">Credit card number</label>
-            <input
+            </Input>
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="cardName">Name on Card</Label>
+            <Input type="text" name="cardName" placeholder="Maisa Mallikas" />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="cardNumber">Credit card number</Label>
+            <Input
               type="text"
               name="cardNumber"
               placeholder="1111-2222-3333-4444"
             />
-          </div>
-          <div>
-            <div>
-              <label htmlFor="cardExpMonth">Exp Month</label>
-              <input type="number" name="cardExpMonth" placeholder="06" />
-            </div>
-            <div>
-              <label htmlFor="cardExpYear">Exp Year</label>
-              <input type="number" name="cardExpYear" placeholder="2020" />
-            </div>
-            <div>
-              <label htmlFor="cardCvv">CVV</label>
-              <input type="text" name="cardCvv" placeholder="123" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
+          </FormGroup>
+          <Row>
+            <Col>
+              <FormGroup>
+                <Label htmlFor="cardExpMonth">Exp Month</Label>
+                <Input type="number" name="cardExpMonth" placeholder="06" />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label htmlFor="cardExpYear">Exp Year</Label>
+                <Input type="number" name="cardExpYear" placeholder="2020" />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label htmlFor="cardCvv">CVV</Label>
+                <Input type="text" name="cardCvv" placeholder="123" />
+              </FormGroup>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </Form>
   );
 }
 
