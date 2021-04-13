@@ -12,6 +12,9 @@ function Home(props) {
         <li>
           <Link to="/styling">Styling</Link>
         </li>
+        <li>
+          <Link to="/cars">Cars</Link>
+        </li>
       </ol>
     </div>
   );
