@@ -1,15 +1,46 @@
 import React from "react";
+import { Row, Col } from "reactstrap";
+
+import "./Cars.css";
 
 export default function Cars(props) {
   return (
-    <div id="cars">
-      <div make="ford">Mustang</div>
-      <div make="honda">Civic</div>
-      <div make="skoda">Octavia</div>
-      <div make="honda">Accord</div>
-      <div make="skoda">Fabia</div>
-      <div make="ford">T</div>
-      <div make="volvo">V40</div>
-    </div>
+    <Row id="cars">
+      <Col>
+        <div make="ford" className="car rounded-circle text-center">
+          Mustang
+        </div>
+      </Col>
+      <Col>
+        <div make="honda" className="car rounded-circle text-center">
+          Civic
+        </div>
+      </Col>
+      <Col>
+        <div make="skoda" className="car rounded-circle text-center">
+          Octavia
+        </div>
+      </Col>
+      <Col>
+        <div make="honda" className="car rounded-circle text-center">
+          Accord
+        </div>
+      </Col>
+      <Col>
+        <div make="skoda" className="car rounded-circle text-center">
+          Fabia
+        </div>
+      </Col>
+      <Col>
+        <div make="ford" className="car rounded-circle text-center">
+          T
+        </div>
+      </Col>
+      <Col>
+        <div make="volvo" className="car rounded-circle text-center">
+          V40
+        </div>
+      </Col>
+    </Row>
   );
 }

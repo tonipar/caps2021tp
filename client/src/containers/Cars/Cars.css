@@ -1,0 +1,29 @@
+#cars {
+  padding: 20px;
+}
+
+.car {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.car:hover {
+  transform: scale(1.25);
+}
+.car[make="ford"] {
+  background-color: blue;
+  color: white;
+}
+.car[make="skoda"] {
+  background-color: purple;
+  color: white;
+}
+.car[make="volvo"] {
+  background-color: green;
+  color: white;
+}
+.car[make="honda"] {
+  background-color: silver;
+}
