@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Col } from "reactstrap";
 
 export default function Car(props) {
@@ -11,3 +12,8 @@ export default function Car(props) {
     </Col>
   );
 }
+
+Car.propTypes = {
+  make: PropTypes.string.isRequired,
+  model: PropTypes.string.isRequired,
+};

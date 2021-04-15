@@ -1,0 +1,16 @@
+.nav-bar {
+  background-color: darkblue;
+}
+.nav-bar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-bar li {
+  padding: 0.5em 1em;
+}
+.nav-bar a,
+.nav-bar a:hover {
+  color: white;
+}
