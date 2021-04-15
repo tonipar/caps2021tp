@@ -29,26 +29,6 @@
       "id": 6,
       "make": "ford",
       "model": "T"
-    },
-    {
-      "id": 7,
-      "make": "volvo",
-      "model": "V40"
-    },
-    {
-      "make": "ford",
-      "model": "Sierra",
-      "id": 8
-    },
-    {
-      "make": "honda",
-      "model": "CRV",
-      "id": 9
-    },
-    {
-      "make": "ford",
-      "model": "A",
-      "id": 10
     }
   ]
 }

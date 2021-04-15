@@ -8,6 +8,7 @@
   line-height: 80px;
   cursor: pointer;
   transition: 0.5s ease-in-out;
+  position: relative;
 }
 .car:hover {
   transform: scale(1.25);
@@ -26,4 +27,13 @@
 }
 .car[make="honda"] {
   background-color: silver;
+}
+
+.btn.car-button-delete {
+  font-size: 0.5em;
+  padding: 0.2em;
+  line-height: 0.5;
+  position: absolute;
+  top: -3px;
+  right: -3px;
 }
