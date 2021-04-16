@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import AddCar from "./AddCar";
 import Car from "./Car";
 import "./Cars.css";
-import { getCars } from "./carsSlice";
+import { getCars, deleteCar } from "./carsSlice";
 
 export default function Cars(props) {
   const { carList, loading, error } = useSelector((state) => state.cars);
@@ -15,16 +15,8 @@ export default function Cars(props) {
   }, [dispatch]);
 
   const removeCar = (id) => {
-    // fetch(`/api/cars/${id}`, {
-    //   method: "DELETE",
-    // }).then(() => {
-    //   setCars(cars.filter((car) => car.id !== id));
-    // });
+    dispatch(deleteCar(id));
   };
-
-  if (error) {
-    return error;
-  }
 
   if (loading) {
     return "Loading...";
@@ -33,6 +25,7 @@ export default function Cars(props) {
   return (
     <React.Fragment>
       <AddCar />
+      {error && <div>{error}</div>}
       <Row id="cars">
         {carList.map((car) => (
           <Car

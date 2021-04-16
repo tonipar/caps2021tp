@@ -19,16 +19,6 @@
       "id": 4,
       "make": "honda",
       "model": "Accord"
-    },
-    {
-      "id": 5,
-      "make": "skoda",
-      "model": "Fabia"
-    },
-    {
-      "id": 6,
-      "make": "ford",
-      "model": "T"
     }
   ]
 }
