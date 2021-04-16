@@ -32,7 +32,7 @@ export default function Cars(props) {
 
   return (
     <React.Fragment>
-      <AddCar onCarAdded={() => {} /*(car) => setCars([...cars, car])*/} />
+      <AddCar />
       <Row id="cars">
         {carList.map((car) => (
           <Car

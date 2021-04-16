@@ -1,19 +1,13 @@
 import React from "react";
 import { Field, Form, Formik } from "formik";
 import { Button, Input, Row, Col } from "reactstrap";
+import { useDispatch } from "react-redux";
+import { addCar } from "./carsSlice";
 
 export default function AddCar(props) {
-  const { onCarAdded } = props;
+  const dispatch = useDispatch();
   const onSubmit = (values, actions) => {
-    fetch("/api/cars", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    })
-      .then((response) => response.json())
-      .then((data) => onCarAdded(data));
+    dispatch(addCar(values));
   };
   return (
     <Formik initialValues={{ make: "ford", model: "" }} onSubmit={onSubmit}>
