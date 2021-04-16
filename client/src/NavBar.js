@@ -16,6 +16,9 @@ export default function NavBar(props) {
         <li>
           <Link to="/cars">Cars</Link>
         </li>
+        <li>
+          <Link to="/chart">Chart</Link>
+        </li>
       </ul>
     </div>
   );
