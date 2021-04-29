@@ -1,37 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './button.css';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({ primary, backgroundColor, size, label, ...props }) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+const ButtonEl = styled.button`
+  border: none;
+  padding: 8px;
+  ${(props) => {
+    switch (props.intent) {
+      case "primary":
+        return `
+          background-color: ${props.theme.colorPrimary};
+          color: ${props.theme.colorPrimaryText};
+        `;
+      case "secondary":
+        return `
+        background-color: ${props.theme.colorSecondary};
+        color: ${props.theme.colorSecondaryText};
+      `;
+      default:
+        return "";
+    }
+  }}
+`;
+
+export const Button = ({ label, ...props }) => {
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={backgroundColor && { backgroundColor }}
-      {...props}
-    >
+    <ButtonEl type="button" {...props}>
       {label}
-    </button>
+    </ButtonEl>
   );
 };
 
 Button.propTypes = {
   /**
-   * Is this the principal call to action on the page?
+   * Type of the button
    */
-  primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
-  backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  intent: PropTypes.oneOf(["primary", "secondary", "default"]),
   /**
    * Button contents
    */
@@ -43,8 +47,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  size: 'medium',
+  intent: "default",
   onClick: undefined,
 };
