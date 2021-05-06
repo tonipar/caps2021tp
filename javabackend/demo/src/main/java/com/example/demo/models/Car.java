@@ -1,5 +1,8 @@
 package com.example.demo.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Car {
     private Long id;
     private String make;
