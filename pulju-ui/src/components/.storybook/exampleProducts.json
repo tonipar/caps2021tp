@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Koivu",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 3.5,
+    "images": {
+      "alt": "Koivu",
+      "list": "//picsum.photos/264/136",
+      "full": "//picsum.photos/900/900"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Vaahtera",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 2,
+    "images": {
+      "alt": "Vaahtera",
+      "list": "//picsum.photos/264/136",
+      "full": "//picsum.photos/900/900"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Tammi",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 10,
+    "images": {
+      "alt": "Tammi",
+      "list": "//picsum.photos/264/136",
+      "full": "//picsum.photos/900/900"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Kivi",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": 6.2,
+    "images": {
+      "alt": "Kivi",
+      "list": "//picsum.photos/264/136",
+      "full": "//picsum.photos/900/900"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Mänty",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": "99",
+    "images": {
+      "alt": "Mänty",
+      "list": "//picsum.photos/264/136",
+      "full": "//picsum.photos/900/900"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Kuusi",
+    "detail": "Lorem ipsum dolor sit amet",
+    "price": "99",
+    "images": {
+      "alt": "Kuusi",
+      "list": "//picsum.photos/264/136",
+      "full": "//picsum.photos/900/900"
+    }
+  }
+]
