@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const ButtonEl = styled.button`
   border: none;
-  padding: 8px;
+  font-size: 1rem;
+  padding: calc((3rem - 1em) / 2) 1rem;
   ${(props) => {
     switch (props.intent) {
       case "primary":
@@ -21,6 +22,7 @@ const ButtonEl = styled.button`
         return "";
     }
   }}
+  min-width: 3rem;
 `;
 
 export const Button = ({ label, ...props }) => {
