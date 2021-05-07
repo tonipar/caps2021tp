@@ -21,8 +21,8 @@ public class CarsController {
 
         ArrayList<Car> cars = new ArrayList<Car>();
 
-        cars.add(new Car(1l, "ford", "mustang"));
-        cars.add(new Car(2l, "honda", "civic"));
+        cars.add(new Car("ford", "mustang"));
+        cars.add(new Car("honda", "civic"));
 
         return cars;
     }

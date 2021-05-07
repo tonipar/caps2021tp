@@ -1,15 +1,17 @@
 package com.example.demo.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Car {
-    private Long id;
+    private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private String make;
     private String model;
 
-    public Car(Long id, String make, String model) {
-        this.id = id;
+    public Car(String make, String model) {
         this.make = make;
         this.model = model;
     }
