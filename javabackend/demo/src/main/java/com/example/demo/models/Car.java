@@ -11,6 +11,9 @@ public class Car {
     private String make;
     private String model;
 
+    Car() {
+    }
+
     public Car(String make, String model) {
         this.make = make;
         this.model = model;
@@ -27,5 +30,4 @@ public class Car {
     public String getModel() {
         return this.model;
     }
-    
 }

@@ -1,10 +1,9 @@
 package com.example.demo.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.models.Car;
-import com.example.demo.repositories.CarsRepository;
+import com.example.demo.models.Fruit;
+import com.example.demo.repositories.FruitsRepository;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,25 +13,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-public class CarsController {
-    private final CarsRepository repository;
+public class FruitsController {
+    private final FruitsRepository repository;
 
-    CarsController(CarsRepository repository) {
+    FruitsController(FruitsRepository repository) {
         this.repository = repository;
     }
 
-    @GetMapping("/Cars")
-    public List<Car> index() {
+    @GetMapping("/Fruits")
+    public List<Fruit> getFruits() {
         return this.repository.findAll();
     }
 
-    @PostMapping("/Cars")
-    public Car addCar(@RequestBody Car newCar) {
-        return this.repository.save(newCar);
+    @PostMapping("/Fruits")
+    public Fruit addFruit(@RequestBody Fruit newFruit) {
+        return this.repository.save(newFruit);
     }
 
-    @DeleteMapping("/Cars/{id}")
+    @DeleteMapping("/Fruits/{id}")
     public void deleteFruit(@PathVariable Long id) {
         this.repository.deleteById(id);
     }
+
 }

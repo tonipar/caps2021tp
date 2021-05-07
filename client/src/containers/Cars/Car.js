@@ -23,7 +23,10 @@ export default function Car(props) {
 }
 
 Car.propTypes = {
-  make: PropTypes.string.isRequired,
+  /**
+   Manufacturer
+  */
+  make: PropTypes.oneOf(["ford", "honda", "skoda", "volvo"]).isRequired,
   model: PropTypes.string.isRequired,
   onDelete: PropTypes.func,
 };

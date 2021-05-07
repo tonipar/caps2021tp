@@ -1,0 +1,110 @@
+{
+  "NonCommercialSpaceLaunches": [
+    {
+      "year": 1997,
+      "launches": 601
+    },
+    {
+      "year": 1998,
+      "launches": 579
+    },
+    {
+      "year": 1999,
+      "launches": 572
+    },
+    {
+      "year": 2000,
+      "launches": 617
+    },
+    {
+      "year": 2001,
+      "launches": 566
+    },
+    {
+      "year": 2002,
+      "launches": 547
+    },
+    {
+      "year": 2003,
+      "launches": 597
+    },
+    {
+      "year": 2004,
+      "launches": 580
+    },
+    {
+      "year": 2005,
+      "launches": 536
+    },
+    {
+      "year": 2006,
+      "launches": 579
+    },
+    {
+      "year": 2007,
+      "launches": 576
+    },
+    {
+      "year": 2008,
+      "launches": 601
+    },
+    {
+      "year": 2009,
+      "launches": 664
+    }
+  ],
+  "SociologyDoctoratesAwarded": [
+    {
+      "year": 1997,
+      "doctorates": 54
+    },
+    {
+      "year": 1998,
+      "doctorates": 46
+    },
+    {
+      "year": 1999,
+      "doctorates": 42
+    },
+    {
+      "year": 2000,
+      "doctorates": 50
+    },
+    {
+      "year": 2001,
+      "doctorates": 43
+    },
+    {
+      "year": 2002,
+      "doctorates": 41
+    },
+    {
+      "year": 2003,
+      "doctorates": 46
+    },
+    {
+      "year": 2004,
+      "doctorates": 39
+    },
+    {
+      "year": 2005,
+      "doctorates": 37
+    },
+    {
+      "year": 2006,
+      "doctorates": 45
+    },
+    {
+      "year": 2007,
+      "doctorates": 45
+    },
+    {
+      "year": 2008,
+      "doctorates": 41
+    },
+    {
+      "year": 2009,
+      "doctorates": 54
+    }
+  ]
+}
