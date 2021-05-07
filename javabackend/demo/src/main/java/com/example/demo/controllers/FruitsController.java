@@ -50,8 +50,13 @@ public class FruitsController {
     @PatchMapping("/Fruits/{id}")
     public Fruit patchFruit(@RequestBody Fruit newFruit, @PathVariable Long id) {
         Fruit oldFruit = this.getFruit(id);
-        return this.repository.save(oldFruit.name(newFruit.getName() != null ? newFruit.getName() : oldFruit.getName())
-                .type(newFruit.getType() != null ? newFruit.getType() : oldFruit.getType()));
+        if (newFruit.getName() != null) {
+            oldFruit.setName(newFruit.getName());
+        }
+        if (newFruit.getType() != null) {
+            oldFruit.setType(newFruit.getType());
+        }
+        return this.repository.save(oldFruit);
     }
 
     @DeleteMapping("/Fruits/{id}")
