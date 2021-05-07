@@ -1,6 +1,5 @@
 package com.example.demo.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.models.Car;
@@ -22,7 +21,7 @@ public class CarsController {
     }
 
     @GetMapping("/Cars")
-    public List<Car> index() {
+    public List<Car> getCars() {
         return this.repository.findAll();
     }
 
