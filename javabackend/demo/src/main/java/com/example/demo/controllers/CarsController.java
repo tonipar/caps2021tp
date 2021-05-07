@@ -21,7 +21,7 @@ public class CarsController {
     }
 
     @GetMapping("/Cars")
-    public List<Car> index() {
+    public List<Car> getCars() {
         return this.repository.findAll();
     }
 
