@@ -2,8 +2,6 @@ package com.example.demo.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import net.bytebuddy.build.HashCodeAndEqualsPlugin.Sorted;
-
 import com.example.demo.utils.MyOwnMath;
 
 import java.util.ArrayList;
@@ -30,8 +28,8 @@ public class HelloController {
 
     @GetMapping("/list")
     public String listExamples() {
-        MyOwnList<String> stringList = new MyOwnList<String>();
-        MyOwnList<Integer> intList = new MyOwnList<Integer>();
+        MyOwnList<String> stringList = new MyOwnList<>();
+        MyOwnList<Integer> intList = new MyOwnList<>();
         stringList.add("Moi");
         intList.add(1);
         return "GOT " + stringList.get(0) + " AND " + intList.get(0);
@@ -39,11 +37,11 @@ public class HelloController {
 
     @GetMapping("/stream")
     public String streamExamples() {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         list.add("Venus");
         list.add("Maa");
         list.add("Mars");
-        List<String> filteredList = list.parallelStream().filter(planet -> planet.startsWith("M"))
+        var filteredList = list.parallelStream().filter(planet -> planet.startsWith("M"))
                 .map(planet -> planet.toLowerCase()).collect(Collectors.toList());
 
         return String.join(", ", filteredList);
@@ -51,7 +49,7 @@ public class HelloController {
 
     @GetMapping("/streamReduce")
     public String streamReduceExamples() {
-        List<String> list = new ArrayList<String>();
+        var list = new ArrayList<String>();
         list.add("Venus");
         list.add("Maa");
         list.add("Mars");
@@ -63,12 +61,12 @@ public class HelloController {
 
     @GetMapping("/streamWithMethodRef")
     public String streamWithMethosRefExamples() {
-        List<Integer> list = new ArrayList<Integer>();
+        var list = new ArrayList<Integer>();
         list.add(1);
         list.add(8);
         list.add(2);
         list.add(4);
-        List<Integer> sortedList = list.stream().sorted(Integer::compare).collect(Collectors.toList());
+        var sortedList = list.stream().sorted(Integer::compare).collect(Collectors.toList());
 
         return sortedList.toString();
     }
