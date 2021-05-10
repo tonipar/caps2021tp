@@ -4,9 +4,6 @@ import com.example.demo.models.Fruit;
 import com.example.demo.repositories.FruitsRepository;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
@@ -17,15 +14,4 @@ public class FruitsController extends CrudController<Fruit, FruitsRepository> {
         super(repository);
     }
 
-    @PatchMapping("/{id}")
-    public Fruit patch(@RequestBody Fruit newEntity, @PathVariable Long id) {
-        Fruit oldEntity = this.getOne(id);
-        if (newEntity.getName() != null) {
-            oldEntity.setName(newEntity.getName());
-        }
-        if (newEntity.getType() != null) {
-            oldEntity.setType(newEntity.getType());
-        }
-        return this.repository.save(oldEntity);
-    }
 }
