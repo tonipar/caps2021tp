@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.example.demo.utils.INextId;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Fruit {
+public class Fruit implements INextId {
     private @Id @GeneratedValue(strategy = GenerationType.IDENTITY) Long id;
     private String type;
     private String name;
