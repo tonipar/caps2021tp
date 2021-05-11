@@ -24,7 +24,7 @@ public class CrudController<T extends IHasId<Long>, R extends JpaRepository<T, L
         this.repository = repository;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<T> getAll() {
         return this.repository.findAll();
     }
@@ -35,7 +35,7 @@ public class CrudController<T extends IHasId<Long>, R extends JpaRepository<T, L
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not entity with id " + id));
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public T add(@RequestBody T newEntity) {
         return this.repository.save(newEntity);
     }
