@@ -1,7 +1,3 @@
-import jwt from "jsonwebtoken";
-
-const VERY_SECRET_KEY = "akjngfwoeinoi2n3n2rlk3nlknslf";
-
 const users = [
   { username: "user", password: "salasana", role: "USER" },
   { username: "admin", password: "salasana", role: "ADMIN" },
@@ -14,7 +10,10 @@ export default (app) => {
     const user = users.find((user) => user.username === username);
 
     if (password === user.password) {
-      const token = jwt.sign({ role: user.role }, VERY_SECRET_KEY);
+      const token = { role: user.role };
+
+      res.cookie("accessToken", token, { signed: true, httpOnly: true });
+
       res.send(token);
     } else {
       const error = new Error("Unauthorized");
@@ -26,10 +25,9 @@ export default (app) => {
 
 export const secure = (...allowedRoles) => {
   return (req, res, next) => {
-    const { query } = req;
+    const { signedCookies } = req;
 
-    const accessToken = jwt.verify(query.accessToken, VERY_SECRET_KEY);
-    console.log(accessToken);
+    const accessToken = signedCookies.accessToken;
 
     if (accessToken && allowedRoles.includes(accessToken.role)) {
       req.accessToken = accessToken;
