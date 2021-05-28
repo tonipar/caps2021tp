@@ -4,12 +4,14 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.jsobn());
+app.use(bodyParser.json());
 
-import CarsController from "./Cars/CarsController.js";
+import SampleController from "./SampleController.js";
+import FruitsController from "./fruits/FruitsController.js";
 
-CarsController(app);
+SampleController(app);
+FruitsController(app);
 
 app.listen(port, () => {
-  console.log("Listening");
+  console.log(`Example app listening at http://localhost:${port}`);
 });
