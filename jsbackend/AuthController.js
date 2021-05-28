@@ -2,14 +2,19 @@ import jwt from "jsonwebtoken";
 
 const VERY_SECRET_KEY = "akjngfwoeinoi2n3n2rlk3nlknslf";
 
+const users = [
+  { username: "user", password: "salasana", role: "USER" },
+  { username: "admin", password: "salasana", role: "ADMIN" },
+];
+
 export default (app) => {
   app.post("/login", (req, res, next) => {
     const { username, password } = req.body;
-    if (username === "user" && password === "salasana") {
-      const token = jwt.sign({ role: "USER" }, VERY_SECRET_KEY);
-      res.send(token);
-    } else if (username === "admin" && password === "salasana") {
-      const token = jwt.sign({ role: "ADMIN" }, VERY_SECRET_KEY);
+
+    const user = users.find((user) => user.username === username);
+
+    if (password === user.password) {
+      const token = jwt.sign({ role: user.role }, VERY_SECRET_KEY);
       res.send(token);
     } else {
       const error = new Error("Unauthorized");
