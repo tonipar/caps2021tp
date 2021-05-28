@@ -1,6 +1,12 @@
+import bcrypt from "bcryptjs";
+
+const hashPassword = (password) => {
+  return bcrypt.hashSync(password, 8);
+};
+
 const users = [
-  { username: "user", password: "salasana", role: "USER" },
-  { username: "admin", password: "salasana", role: "ADMIN" },
+  { username: "user", password: hashPassword("salasana"), role: "USER" },
+  { username: "admin", password: hashPassword("salasana"), role: "ADMIN" },
 ];
 
 export default (app) => {
@@ -9,7 +15,7 @@ export default (app) => {
 
     const user = users.find((user) => user.username === username);
 
-    if (password === user.password) {
+    if (user && bcrypt.compareSync(password, user.password)) {
       const token = { role: user.role };
 
       res.cookie("accessToken", token, { signed: true, httpOnly: true });
