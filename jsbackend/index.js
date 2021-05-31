@@ -8,9 +8,11 @@ app.use(bodyParser.json());
 
 import SampleController from "./SampleController.js";
 import FruitsController from "./fruits/FruitsController.js";
+import CarsController from "./Cars/CarsController.js";
 
 SampleController(app);
 FruitsController(app);
+CarsController(app);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
