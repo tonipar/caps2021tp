@@ -1,4 +1,4 @@
 import mongoose from "mongoose";
-import FrtuiSchema from "./FruitSchema.js";
+import FruitSchema from "./FruitSchema.js";
 
-export const FruitModel = mongoose.model("Fruit", FrtuiSchema);
+export const FruitModel = mongoose.model("Fruit", FruitSchema);
