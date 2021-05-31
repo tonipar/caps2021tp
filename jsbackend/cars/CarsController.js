@@ -1,34 +1,33 @@
-const cars = [
-  { id: 1, make: "ford", model: "Mustang" },
-  { id: 2, make: "honda", model: "Civic" },
-];
+import { CarModel } from "./CarsRepository.js";
 
 export default (app) => {
-  app.get("/Cars", (req, res) => {
-    res.json(cars);
-  });
-
-  app.post("/Cars", (req, res) => {
-    const { body } = req;
-    const { make, model } = body;
-
-    const id = cars.reduce((maxId, car) => Math.max(maxId, car.id), 0);
-
-    const newCar = { id: id + 1, make, model };
-
-    cars.push(newCar);
-    res.json(newCar);
-  });
-
-  app.delete("/Cars/:id", (req, res) => {
-    const { params } = req;
-
-    const n = cars.findIndex((car) => car.id === parseInt(params.id));
-
-    if (n > -1) {
-      cars.splice(n, 1);
+  app.get("/Cars", async (req, res) => {
+    try {
+      const cars = await CarModel.find({});
+      res.json(cars);
+    } catch (err) {
+      res.status(500).send("Error fetching cars");
     }
+  });
 
-    res.end();
+  app.post("/Cars", async (req, res) => {
+    const { body } = req;
+    try {
+      const newCar = new CarModel(body);
+      await newCar.save();
+      res.json(newCar);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
+
+  app.delete("/Cars/:id", async (req, res) => {
+    const { params } = req;
+    try {
+      await CarModel.findByIdAndRemove(params.id);
+      res.end();
+    } catch (err) {
+      res.status(500).send(err);
+    }
   });
 };
