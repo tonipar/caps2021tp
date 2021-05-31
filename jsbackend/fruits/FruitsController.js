@@ -1,11 +1,13 @@
+import { secure } from "../AuthController.js";
+
 const fruits = [{ id: 1, type: "apple", name: "Golden" }];
 
 export default (app) => {
-  app.get("/Fruits", (req, res) => {
+  app.get("/Fruits", secure("USER", "ADMIN"), (req, res) => {
     res.json(fruits);
   });
 
-  app.post("/Fruits", (req, res) => {
+  app.post("/Fruits", secure("ADMIN"), (req, res) => {
     const { body } = req;
     const { type, name } = body;
 
@@ -17,7 +19,7 @@ export default (app) => {
     res.json(newFruit);
   });
 
-  app.delete("/Fruits/:id", (req, res) => {
+  app.delete("/Fruits/:id", secure("ADMIN"), (req, res) => {
     const { params } = req;
 
     const n = fruits.findIndex((fruit) => fruit.id === parseInt(params.id));
