@@ -1,6 +1,8 @@
 import axios from "axios";
 import querystring from "querystring";
 
+import * as redis from "../redis.js";
+
 const { HERE_API_KEY, MAPBOX_API_KEY, OPENCAGE_API_KEY } = process.env;
 
 const getMapBoxLocation = async (address) => {
@@ -36,42 +38,56 @@ const geoCodeFunctions = [
 
 export default (app) => {
   app.get("/geocode", async (req, res) => {
+    console.time("geocode");
     const { address } = req.query;
-    try {
-      // Wait that previos is completed
-      //   const results = [];
-      //   for (const func of geoCodeFunctions) {
-      //     console.log("REQUEST", func);
-      //     const result = await func(address);
-      //     console.log("RESPONSE", func);
 
-      //     if (result.lat && result.lng) {
-      //       results.push(result);
-      //     }
-      //   }
+    const oldValue = await redis.getAsync(address);
+    if (oldValue) {
+      console.log("FORND OLD");
+      console.timeEnd("geocode");
+      res.json(JSON.parse(oldValue));
+    } else {
+      try {
+        // Wait that previos is completed
+        //   const results = [];
+        //   for (const func of geoCodeFunctions) {
+        //     console.log("REQUEST", func);
+        //     const result = await func(address);
+        //     console.log("RESPONSE", func);
 
-      const results = (
-        await Promise.allSettled(geoCodeFunctions.map((func) => func(address)))
-      )
-        .filter(({ status }) => status === "fulfilled")
-        .map(({ value }) => value);
-      console.log({ results });
-      const sums = results.reduce((sums, result) => ({
-        lng: sums.lng + result.lng,
-        lat: sums.lat + result.lat,
-      }));
-      const averages = Object.fromEntries(
-        Object.entries(sums).map(([key, value]) => [
-          key,
-          value / results.length,
-        ])
-      );
+        //     if (result.lat && result.lng) {
+        //       results.push(result);
+        //     }
+        //   }
 
-      res.send(averages);
-    } catch (error) {
-      console.error(error);
+        const results = (
+          await Promise.allSettled(
+            geoCodeFunctions.map((func) => func(address))
+          )
+        )
+          .filter(({ status }) => status === "fulfilled")
+          .map(({ value }) => value);
+        console.log({ results });
+        const sums = results.reduce((sums, result) => ({
+          lng: sums.lng + result.lng,
+          lat: sums.lat + result.lat,
+        }));
+        const averages = Object.fromEntries(
+          Object.entries(sums).map(([key, value]) => [
+            key,
+            value / results.length,
+          ])
+        );
 
-      res.end();
+        console.log("SAVED NEW");
+        redis.set(address, JSON.stringify(averages), "EX", 30);
+        console.timeEnd("geocode");
+        res.json(averages);
+      } catch (error) {
+        console.error(error);
+
+        res.end();
+      }
     }
   });
 };
