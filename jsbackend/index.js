@@ -24,7 +24,7 @@ import AuhtController from "./AuthController.js";
 import GraphQlController from "./GraphQlController.js";
 import SampleController from "./SampleController.js";
 import FruitsController from "./fruits/FruitsController.js";
-import CarsController from "./Cars/CarsController.js";
+import CarsController from "./cars/CarsController.js";
 
 AuhtController(app);
 GraphQlController(app);
