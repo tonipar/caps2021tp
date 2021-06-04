@@ -10,8 +10,15 @@ const VERY_SECRET_KEY = "akjngfwoeinoi2n3n2rlk3nlknslf";
 app.use(cookieParser(VERY_SECRET_KEY));
 app.use(bodyParser.json());
 
+const {
+  MONGO_HOST = "localhost",
+  MONGO_USER = "root",
+  MONGO_PASSWORD = "example",
+  MONGOD_DB = "code_academy",
+} = process.env;
+
 await mongoose.connect(
-  "mongodb://root:example@localhost/code_academy?authSource=admin",
+  `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGOD_DB}?authSource=admin`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -23,12 +30,14 @@ await mongoose.connect(
 import AuhtController from "./AuthController.js";
 import GraphQlController from "./GraphQlController.js";
 import SampleController from "./SampleController.js";
+import GeoCodingController from "./geocoding/GeoCodingController.js";
 import FruitsController from "./fruits/FruitsController.js";
 import CarsController from "./cars/CarsController.js";
 
 AuhtController(app);
 GraphQlController(app);
 SampleController(app);
+GeoCodingController(app);
 FruitsController(app);
 CarsController(app);
 
