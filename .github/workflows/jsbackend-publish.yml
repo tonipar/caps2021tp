@@ -1,8 +1,8 @@
 name: jsbackend CI
 
 on:
-  pull_request:
-    branches: [toni]
+  tags:
+    - *
 
 jobs:
   build:
