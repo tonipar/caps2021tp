@@ -4,7 +4,7 @@ import { graphqlHTTP } from "express-graphql";
 const schemaComposer = new SchemaComposer();
 
 import { FruitQuery, FruitMutation } from "./fruits/FruitsGraphQLContorller.js";
-import { CarQuery, CarMutation } from "./cars/CarsGraphQLController.js";
+import { CarQuery, CarMutation } from "./cars/CarsGraphQLContorller.js";
 
 schemaComposer.Query.addFields({
   ...FruitQuery,
